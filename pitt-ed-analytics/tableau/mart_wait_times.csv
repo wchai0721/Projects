@@ -1,0 +1,6 @@
+esi_level,patient_count,avg_door_to_provider_mins,min_mins,max_mins
+1,33,28.3,14.0,42.0
+2,37,28.3,14.0,40.0
+3,20,32.0,25.0,41.0
+4,55,42.9,22.0,58.0
+5,35,41.9,23.0,59.0

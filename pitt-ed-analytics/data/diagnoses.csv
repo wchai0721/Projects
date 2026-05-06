@@ -1,0 +1,254 @@
+visit_id,icd_code,diagnosis_description,flag
+1,R51,Headache,primary
+2,R10.9,Abdominal pain,primary
+3,R41.3,AMS,primary
+3,R10.9,Abdominal pain,secondary
+4,R10.9,Abdominal pain,primary
+5,J96.0,Acute resp failure,primary
+6,S52.5,Radius fracture,primary
+7,R51,Headache,primary
+7,R10.9,Abdominal pain,secondary
+8,T14.9,Traumatic injury,primary
+8,M54.5,Low back pain,secondary
+9,G40.9,Epilepsy/seizure,primary
+10,M79.3,Soft tissue disorder,primary
+11,G40.9,Epilepsy/seizure,primary
+11,R10.9,Abdominal pain,secondary
+12,T14.9,Traumatic injury,primary
+13,S21.9,Open wound thorax,primary
+14,S21.9,Open wound thorax,primary
+14,M54.5,Low back pain,secondary
+15,I63.9,Cerebral infarction,primary
+16,T40.2,Opioid overdose,primary
+16,R51,Headache,secondary
+17,G40.9,Epilepsy/seizure,primary
+17,R10.9,Abdominal pain,secondary
+18,S09.9,Head injury,primary
+18,M54.5,Low back pain,secondary
+19,R51,Headache,primary
+19,M54.5,Low back pain,secondary
+20,J96.0,Acute resp failure,primary
+21,M54.5,Low back pain,primary
+21,M54.5,Low back pain,secondary
+22,R51,Headache,primary
+22,R10.9,Abdominal pain,secondary
+23,I63.9,Cerebral infarction,primary
+24,R10.9,Abdominal pain,primary
+24,M54.5,Low back pain,secondary
+25,R51,Headache,primary
+26,T14.9,Traumatic injury,primary
+27,R51,Headache,primary
+28,I50.9,Heart failure,primary
+29,F41.1,Generalized anxiety,primary
+29,M54.5,Low back pain,secondary
+30,I63.9,Cerebral infarction,primary
+31,M54.5,Low back pain,primary
+32,R10.9,Abdominal pain,primary
+32,M54.5,Low back pain,secondary
+33,T14.9,Traumatic injury,primary
+33,M54.5,Low back pain,secondary
+34,J96.0,Acute resp failure,primary
+34,M54.5,Low back pain,secondary
+35,M54.5,Low back pain,primary
+36,S09.9,Head injury,primary
+36,M54.5,Low back pain,secondary
+37,R41.3,AMS,primary
+37,M54.5,Low back pain,secondary
+38,G40.9,Epilepsy/seizure,primary
+39,J18.9,Pneumonia,primary
+40,R51,Headache,primary
+40,R10.9,Abdominal pain,secondary
+41,S82.2,Tibia fracture,primary
+42,R10.9,Abdominal pain,primary
+43,R41.3,AMS,primary
+43,R10.9,Abdominal pain,secondary
+44,R51,Headache,primary
+44,R51,Headache,secondary
+45,M54.5,Low back pain,primary
+46,R51,Headache,primary
+46,M54.5,Low back pain,secondary
+47,M54.5,Low back pain,primary
+47,R10.9,Abdominal pain,secondary
+48,S21.9,Open wound thorax,primary
+48,R51,Headache,secondary
+49,R10.9,Abdominal pain,primary
+49,R51,Headache,secondary
+50,I63.9,Cerebral infarction,primary
+50,R10.9,Abdominal pain,secondary
+51,S21.9,Open wound thorax,primary
+51,R51,Headache,secondary
+52,F41.1,Generalized anxiety,primary
+52,M54.5,Low back pain,secondary
+53,S09.9,Head injury,primary
+54,R51,Headache,primary
+55,S82.2,Tibia fracture,primary
+56,M54.5,Low back pain,primary
+56,R10.9,Abdominal pain,secondary
+57,I63.9,Cerebral infarction,primary
+57,R10.9,Abdominal pain,secondary
+58,I21.9,Acute MI,primary
+59,R10.9,Abdominal pain,primary
+60,R51,Headache,primary
+60,M54.5,Low back pain,secondary
+61,S21.9,Open wound thorax,primary
+61,R10.9,Abdominal pain,secondary
+62,M79.3,Soft tissue disorder,primary
+62,R10.9,Abdominal pain,secondary
+63,R41.3,AMS,primary
+64,F20.9,Schizophrenia,primary
+64,R10.9,Abdominal pain,secondary
+65,R51,Headache,primary
+65,M54.5,Low back pain,secondary
+66,G40.9,Epilepsy/seizure,primary
+67,R10.9,Abdominal pain,primary
+67,R51,Headache,secondary
+68,S52.5,Radius fracture,primary
+69,M54.5,Low back pain,primary
+70,R10.9,Abdominal pain,primary
+71,M79.3,Soft tissue disorder,primary
+71,M54.5,Low back pain,secondary
+72,R51,Headache,primary
+73,R10.9,Abdominal pain,primary
+73,R51,Headache,secondary
+74,I50.9,Heart failure,primary
+74,R10.9,Abdominal pain,secondary
+75,R51,Headache,primary
+75,R51,Headache,secondary
+76,M54.5,Low back pain,primary
+76,R51,Headache,secondary
+77,R51,Headache,primary
+77,R10.9,Abdominal pain,secondary
+78,S09.9,Head injury,primary
+78,M54.5,Low back pain,secondary
+79,R10.9,Abdominal pain,primary
+80,I20.9,Unstable angina,primary
+81,R51,Headache,primary
+82,S21.9,Open wound thorax,primary
+82,R10.9,Abdominal pain,secondary
+83,R51,Headache,primary
+84,I63.9,Cerebral infarction,primary
+85,S21.9,Open wound thorax,primary
+86,M54.5,Low back pain,primary
+87,R51,Headache,primary
+88,G40.9,Epilepsy/seizure,primary
+88,R51,Headache,secondary
+89,R41.3,AMS,primary
+89,R51,Headache,secondary
+90,R51,Headache,primary
+90,M54.5,Low back pain,secondary
+91,M54.5,Low back pain,primary
+92,M54.5,Low back pain,primary
+93,M54.5,Low back pain,primary
+94,R10.9,Abdominal pain,primary
+94,M54.5,Low back pain,secondary
+95,J18.9,Pneumonia,primary
+95,M54.5,Low back pain,secondary
+96,M54.5,Low back pain,primary
+97,R51,Headache,primary
+97,M54.5,Low back pain,secondary
+98,I63.9,Cerebral infarction,primary
+99,I21.9,Acute MI,primary
+100,S09.9,Head injury,primary
+100,R10.9,Abdominal pain,secondary
+101,T14.9,Traumatic injury,primary
+102,S52.5,Radius fracture,primary
+103,M54.5,Low back pain,primary
+104,R10.9,Abdominal pain,primary
+105,R10.9,Abdominal pain,primary
+106,J44.1,COPD exacerbation,primary
+107,M54.5,Low back pain,primary
+107,M54.5,Low back pain,secondary
+108,S52.5,Radius fracture,primary
+109,R51,Headache,primary
+110,J96.0,Acute resp failure,primary
+110,M54.5,Low back pain,secondary
+111,I63.9,Cerebral infarction,primary
+111,R10.9,Abdominal pain,secondary
+112,R10.9,Abdominal pain,primary
+113,M79.3,Soft tissue disorder,primary
+114,M54.5,Low back pain,primary
+114,R10.9,Abdominal pain,secondary
+115,R10.9,Abdominal pain,primary
+116,S52.5,Radius fracture,primary
+117,R51,Headache,primary
+118,J44.1,COPD exacerbation,primary
+118,M54.5,Low back pain,secondary
+119,M79.3,Soft tissue disorder,primary
+120,J96.0,Acute resp failure,primary
+121,R10.9,Abdominal pain,primary
+122,R10.9,Abdominal pain,primary
+123,R10.9,Abdominal pain,primary
+123,R10.9,Abdominal pain,secondary
+124,I21.9,Acute MI,primary
+125,R51,Headache,primary
+125,M54.5,Low back pain,secondary
+126,M54.5,Low back pain,primary
+126,M54.5,Low back pain,secondary
+127,I63.9,Cerebral infarction,primary
+127,R10.9,Abdominal pain,secondary
+128,R10.9,Abdominal pain,primary
+129,R51,Headache,primary
+129,R51,Headache,secondary
+130,G40.9,Epilepsy/seizure,primary
+131,R10.9,Abdominal pain,primary
+132,M54.5,Low back pain,primary
+133,M79.3,Soft tissue disorder,primary
+134,M54.5,Low back pain,primary
+135,R10.9,Abdominal pain,primary
+136,I20.9,Unstable angina,primary
+137,T51.0,Alcohol toxicity,primary
+138,I63.9,Cerebral infarction,primary
+139,F32.9,Major depression,primary
+140,R51,Headache,primary
+141,T14.9,Traumatic injury,primary
+142,R51,Headache,primary
+143,R51,Headache,primary
+143,M54.5,Low back pain,secondary
+144,J18.9,Pneumonia,primary
+145,S21.9,Open wound thorax,primary
+146,F20.9,Schizophrenia,primary
+147,R51,Headache,primary
+148,M54.5,Low back pain,primary
+149,M54.5,Low back pain,primary
+150,S82.2,Tibia fracture,primary
+150,R51,Headache,secondary
+151,M54.5,Low back pain,primary
+152,I20.9,Unstable angina,primary
+153,R51,Headache,primary
+154,M79.3,Soft tissue disorder,primary
+155,R51,Headache,primary
+155,R51,Headache,secondary
+156,I63.9,Cerebral infarction,primary
+157,R51,Headache,primary
+158,I50.9,Heart failure,primary
+158,R10.9,Abdominal pain,secondary
+159,R10.9,Abdominal pain,primary
+159,M54.5,Low back pain,secondary
+160,R10.9,Abdominal pain,primary
+160,M54.5,Low back pain,secondary
+161,R51,Headache,primary
+162,R51,Headache,primary
+163,I63.9,Cerebral infarction,primary
+163,M54.5,Low back pain,secondary
+164,T14.9,Traumatic injury,primary
+165,R10.9,Abdominal pain,primary
+165,R10.9,Abdominal pain,secondary
+166,R51,Headache,primary
+167,R10.9,Abdominal pain,primary
+168,S09.9,Head injury,primary
+169,R10.9,Abdominal pain,primary
+170,R10.9,Abdominal pain,primary
+171,M54.5,Low back pain,primary
+172,R51,Headache,primary
+173,I21.9,Acute MI,primary
+174,S09.9,Head injury,primary
+175,F32.9,Major depression,primary
+176,I20.9,Unstable angina,primary
+176,R51,Headache,secondary
+177,G40.9,Epilepsy/seizure,primary
+178,M54.5,Low back pain,primary
+178,M54.5,Low back pain,secondary
+179,M54.5,Low back pain,primary
+179,R51,Headache,secondary
+180,M54.5,Low back pain,primary
+180,M54.5,Low back pain,secondary

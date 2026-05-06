@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: mart_wait_times
+    description: "Door-to-provider wait times aggregated by ESI acuity level across the 15-hour shift."
+    columns:
+      - name: esi_level
+        description: "Emergency Severity Index 1-5. Level 1 is most critical."
+      - name: avg_door_to_provider_mins
+        description: "Average minutes from patient arrival to provider assignment."
+
+  - name: mart_bottlenecks
+    description: "Average time between each consecutive step in the care pathway, surfacing where patients wait longest."
+    columns:
+      - name: stage
+        description: "The care event where the wait begins."
+      - name: avg_mins
+        description: "Average minutes before the next event occurs."
+
+  - name: mart_readmissions
+    description: "Patients readmitted within 30 days, broken out by insurance type and primary diagnosis."
+    columns:
+      - name: readmissions
+        description: "Count of readmission events."
+      - name: avg_days_to_readmit
+        description: "Average days between discharge and return visit."
+
+  - name: mart_dispositions
+    description: "Patient disposition outcomes broken out by ESI level, showing discharge, admission, and LWBS rates."
+    columns:
+      - name: pct_of_esi_level
+        description: "Percentage of patients at this ESI level who received this disposition."

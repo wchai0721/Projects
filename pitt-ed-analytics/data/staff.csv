@@ -1,0 +1,25 @@
+staff_id,name,role,specialty,shift_start,shift_end
+1,Dr. Robby Robinavitch,attending,trauma,2024-03-15 07:00:00,2024-03-15 22:00:00
+2,Dr. Dana Evans,attending,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+3,Dr. Collins,attending,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+4,Dr. Langdon,resident,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+5,Dr. McKay,resident,trauma,2024-03-15 07:00:00,2024-03-15 22:00:00
+6,Nurse Santos,nurse,trauma,2024-03-15 07:00:00,2024-03-15 22:00:00
+7,Nurse Javadi,nurse,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+8,Nurse Collins,nurse,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+9,Nurse Park,nurse,pediatric,2024-03-15 07:00:00,2024-03-15 22:00:00
+10,Tech Barnes,tech,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+11,Tech Cruz,tech,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+12,Dr. Morin,attending,psych,2024-03-15 07:00:00,2024-03-15 22:00:00
+13,Dr. Patel,resident,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+14,Dr. Whitfield,attending,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+15,Nurse Okafor,nurse,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+16,Nurse Chen,nurse,trauma,2024-03-15 07:00:00,2024-03-15 22:00:00
+17,Tech Morris,tech,trauma,2024-03-15 07:00:00,2024-03-15 22:00:00
+18,Dr. Singh,resident,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+19,Nurse Reyes,nurse,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+20,Dr. Abbott,attending,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+21,Tech Flores,tech,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+22,Nurse Kim,nurse,psych,2024-03-15 07:00:00,2024-03-15 22:00:00
+23,Dr. Tran,resident,general,2024-03-15 07:00:00,2024-03-15 22:00:00
+24,Nurse Wallace,nurse,general,2024-03-15 07:00:00,2024-03-15 22:00:00

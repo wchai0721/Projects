@@ -1,0 +1,14 @@
+esi_level,disposition,count,pct_of_esi_level
+1,deceased,20,60.6
+1,admitted_icu,13,39.4
+2,admitted_icu,13,35.1
+2,admitted_floor,12,32.4
+2,deceased,12,32.4
+3,admitted_icu,10,50.0
+3,discharged,7,35.0
+3,admitted_floor,3,15.0
+4,discharged,23,41.8
+4,admitted_floor,21,38.2
+4,left_without_being_seen,11,20.0
+5,discharged,20,57.1
+5,left_without_being_seen,15,42.9

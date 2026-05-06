@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: public
+    database: pitt_ed
+    schema: public
+    tables:
+      - name: visits
+      - name: visit_events
+      - name: patients
+      - name: dispositions
+      - name: departments
+      - name: staff
+      - name: diagnoses
+      - name: interventions

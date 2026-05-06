@@ -1,0 +1,13 @@
+[0m12:21:25.985646 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c72d3d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c89f190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c89fa90>]}
+
+
+============================== 12:21:25.989185 | a6214733-2d70-4541-b116-a91102db2e8b ==============================
+[0m12:21:25.989185 [info ] [MainThread]: Running with dbt=1.11.8
+[0m12:21:25.989423 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'write_json': 'True', 'profiles_dir': '/Users/wenchai/.dbt', 'warn_error': 'None', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'introspect': 'True', 'log_format': 'default', 'version_check': 'True', 'target_path': 'None', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'quiet': 'False', 'indirect_selection': 'eager', 'static_parser': 'True', 'cache_selected_only': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'use_colors': 'True', 'debug': 'False', 'invocation_command': 'dbt init dbt_project', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m12:21:25.995313 [info ] [MainThread]: Creating dbt configuration folder at /Users/wenchai/.dbt
+[0m12:21:25.995772 [info ] [MainThread]: A project called dbt_project already exists here.
+[0m12:21:26.202291 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.24382958, "process_in_blocks": "0", "process_kernel_time": 0.100939, "process_mem_max_rss": "134545408", "process_out_blocks": "0", "process_user_time": 0.866486}
+[0m12:21:26.203335 [debug] [MainThread]: Command `dbt init` succeeded at 12:21:26.203188 after 0.25 seconds
+[0m12:21:26.203848 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c80d810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c4c6ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1076989d0>]}
+[0m12:21:26.204317 [debug] [MainThread]: Flushing usage events
+[0m12:21:26.428263 [debug] [MainThread]: An error was encountered while trying to flush usage events
