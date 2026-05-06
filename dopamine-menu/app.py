@@ -1,16 +1,12 @@
-"""
-Dopamine Menu Generator — Web Interface (Flask)
-Run: python app.py
-Visit: http://localhost:5000
-"""
-
+import os
 from flask import Flask, render_template, request, jsonify
 from engine import UserInput, generate_menu
 from activities import MOODS, ENERGY_LEVELS, CATEGORIES
 
-import os
-app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), 'templates'))
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
+app = Flask(__name__,
+            template_folder=os.path.join(base_dir, 'templates'))
 
 @app.route("/")
 def index():
@@ -20,7 +16,6 @@ def index():
         energy_levels=ENERGY_LEVELS,
         categories=CATEGORIES,
     )
-
 
 @app.route("/generate", methods=["POST"])
 def generate():
@@ -53,7 +48,6 @@ def generate():
         })
     except (ValueError, KeyError) as e:
         return jsonify({"success": False, "error": str(e)}), 400
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
