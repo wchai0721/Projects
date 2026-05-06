@@ -1,4 +1,3 @@
-import os
 """
 Dopamine Menu Generator — Web Interface (Flask)
 Run: python app.py
@@ -9,7 +8,8 @@ from flask import Flask, render_template, request, jsonify
 from engine import UserInput, generate_menu
 from activities import MOODS, ENERGY_LEVELS, CATEGORIES
 
-app = Flask(__name__)
+import os
+app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), 'templates'))
 
 
 @app.route("/")
