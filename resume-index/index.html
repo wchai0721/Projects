@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wen Chai — Healthcare Strategy & Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1612;
+    --rust: #C4531A;
+    --sage: #4A6741;
+    --slate: #3D4B5C;
+    --muted: #8A8278;
+    --light-rule: #DDD8CE;
+    --card-bg: #FDFAF5;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.5;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--light-rule);
+  }
+
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--rust); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem 4rem;
+    border-right: 1px solid var(--light-rule);
+  }
+
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 420px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+  }
+
+  .badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--light-rule);
+    color: var(--slate);
+    background: var(--card-bg);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+
+  .btn-primary {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    background: var(--ink);
+    color: var(--cream);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--rust); transform: translateY(-2px); }
+
+  .btn-secondary {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem 4rem;
+    position: relative;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.5s;
+  }
+
+  .stat-block {
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--light-rule);
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-number span { color: var(--rust); }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-bio {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.9;
+    border-left: 2px solid var(--rust);
+    padding-left: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.9s;
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section {
+    padding: 6rem 4rem;
+    border-top: 1px solid var(--light-rule);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--rust);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--light-rule);
+    margin-left: 1rem;
+  }
+
+  /* ─── PROJECTS ─── */
+  #projects { background: var(--card-bg); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .project-card {
+    background: var(--cream);
+    border: 1px solid var(--light-rule);
+    padding: 2.5rem;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+    overflow: hidden;
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--rust);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,22,18,0.08); }
+  .project-card:hover::after { transform: scaleX(1); }
+
+  .project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1rem;
+  }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-result {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--sage);
+    border-left: 2px solid var(--sage);
+    padding-left: 0.75rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tool-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--light-rule);
+    color: var(--slate);
+    text-transform: uppercase;
+  }
+
+  .project-link {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .project-link:hover { color: var(--rust); }
+
+  .project-card.wide {
+    grid-column: span 2;
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { }
+
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .skills-intro {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.9;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .skills-intro p { margin-bottom: 1rem; }
+
+  .skills-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .skill-group {
+    border: 1px solid var(--light-rule);
+    background: var(--card-bg);
+  }
+
+  .skill-group-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid var(--light-rule);
+  }
+
+  .skill-group-icon {
+    font-size: 1rem;
+    width: 2rem;
+    text-align: center;
+  }
+
+  .skill-group-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .skill-group-body {
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-pill {
+    font-size: 0.82rem;
+    padding: 0.3rem 0.8rem;
+    background: var(--cream);
+    border: 1px solid var(--light-rule);
+    color: var(--slate);
+    transition: all 0.2s;
+  }
+
+  .skill-pill:hover { background: var(--rust); color: white; border-color: var(--rust); }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--card-bg); }
+
+  .experience-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--light-rule);
+  }
+
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-meta {}
+
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-org {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rust);
+  }
+
+  .exp-content {}
+
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .exp-desc {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+
+  .exp-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .exp-highlight {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.7rem;
+    background: var(--cream);
+    border: 1px solid var(--light-rule);
+    color: var(--sage);
+    text-transform: uppercase;
+  }
+
+  /* ─── EDUCATION / CERTS ─── */
+  #education {}
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .edu-card {
+    background: var(--card-bg);
+    border: 1px solid var(--light-rule);
+    padding: 2.5rem;
+  }
+
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .edu-school {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.35rem;
+  }
+
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--rust);
+  }
+
+  .edu-note {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+
+  .certs-section {
+    margin-top: 3rem;
+  }
+
+  .cert-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--light-rule);
+  }
+
+  .cert-row:last-child { border-bottom: none; }
+
+  .cert-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--rust);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    font-size: 0.87rem;
+    color: var(--ink);
+  }
+
+  .cert-provider {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-left: auto;
+  }
+
+  .cert-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .cert-link:hover { color: var(--rust); }
+
+  /* ─── CONTACT / FOOTER ─── */
+  #contact {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 6rem 4rem;
+    border-top: none;
+  }
+
+  #contact .section-title { color: var(--cream); }
+  #contact .section-num { color: var(--rust); }
+  #contact .section-rule { background: rgba(245,240,232,0.15); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-statement {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+  }
+
+  .contact-statement em { color: var(--rust); font-style: italic; }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--cream);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(245,240,232,0.15);
+    transition: all 0.2s;
+  }
+
+  .contact-item:hover {
+    background: rgba(245,240,232,0.05);
+    border-color: var(--rust);
+    transform: translateX(4px);
+  }
+
+  .contact-item-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rust);
+    min-width: 60px;
+  }
+
+  .contact-item-value {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.8);
+  }
+
+  .footer-bottom {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(245,240,232,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,240,232,0.3);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--muted); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    nav { padding: 1.25rem 2rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 6rem 2rem 2rem; border-right: none; }
+    .hero-right { padding: 2rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    section { padding: 4rem 2rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.wide { grid-column: span 1; }
+    .skills-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .skills-intro { position: static; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Wen Chai</div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border-top:none; padding: 0;">
+  <div class="hero-left">
+    <div class="hero-label">Healthcare Strategy &amp; Analytics</div>
+    <h1 class="hero-name">Wen<br><em>Chai</em></h1>
+    <p class="hero-tagline">15+ years at the intersection of life sciences, clinical research, and healthcare analytics.</p>
+    <div class="hero-badges">
+      <span class="badge">MBA · Business Analytics</span>
+      <span class="badge">Management Consulting</span>
+      <span class="badge">Startup Operator</span>
+      <span class="badge">Medical Industry Leadership</span>
+      <span class="badge">Neuroscience</span>
+      <span class="badge">Stem Cell Biology</span>
+      <span class="badge">2 U.S. Patents</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="mailto:wchai0721@gmail.com" class="btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-block">
+        <div class="stat-number">15<span>+</span></div>
+        <div class="stat-label">Years in Healthcare</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">5<span>M+</span></div>
+        <div class="stat-label">In Research Funding</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Peer-Reviewed Pubs</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Patents & IP</div>
+      </div>
+    </div>
+    <p class="hero-bio">Trained as a neuroscientist, working as a strategist. I bring scientific rigor to business problems — building frameworks, analytical tools, and decision-ready materials across life sciences and healthcare.</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Selected Projects</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="project-card wide reveal">
+      <a class="project-link" href="https://github.com/wchai0721/Projects/blob/main/sci_analysis.ipynb" target="_blank">↗ GitHub</a>
+      <div class="project-tag">Python · SQL · PostgreSQL</div>
+      <h3 class="project-title">SCI Clinical Trial Landscape Analysis</h3>
+      <p class="project-desc">Analyzed 939 registered spinal cord injury clinical trials using the AACT PostgreSQL database. Connected to a live remote database, joined multiple relational tables, and visualized 35 years of trial registration trends to surface translational bottlenecks in the clinical pipeline.</p>
+      <div class="project-result">Only ~2% of phased SCI trials reach Phase 3. Biological interventions represent just 4.4% of trials despite growing preclinical interest — a strategic gap with significant implications for cell therapy developers.</div>
+      <div class="project-tools">
+        <span class="tool-chip">Python</span>
+        <span class="tool-chip">Pandas</span>
+        <span class="tool-chip">SQLAlchemy</span>
+        <span class="tool-chip">PostgreSQL</span>
+        <span class="tool-chip">Seaborn</span>
+        <span class="tool-chip">Matplotlib</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <a class="project-link" href="https://github.com/wchai0721/Projects/blob/main/oncology_landscape.ipynb" target="_blank">↗ GitHub</a>
+      <div class="project-tag">Python · SQL · Competitive Intelligence</div>
+      <h3 class="project-title">Oncology In Vitro Clinical Trial Landscape</h3>
+      <p class="project-desc">Mapped the global oncology in vitro trial landscape across sponsors, geographies, and intervention types — designed to inform CRO product strategy and competitive positioning.</p>
+      <div class="project-result">Academic/gov institutions lead at 70.1%. Industry sponsors hold only 5.9%. Biological trial volume tripled 2015–2023, driven by immunotherapy and cell therapy pipelines.</div>
+      <div class="project-tools">
+        <span class="tool-chip">Python</span>
+        <span class="tool-chip">SQL</span>
+        <span class="tool-chip">PostgreSQL</span>
+        <span class="tool-chip">Competitive Intel</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <a class="project-link" href="https://public.tableau.com/shared/QP3QXGT9Q?:display_count=n&:origin=viz_share_link" target="_blank">↗ Tableau</a>
+      <div class="project-tag">Python · SQL · dbt · Tableau</div>
+      <h3 class="project-title">Pittsburgh Trauma Center — ED Shift Analytics</h3>
+      <p class="project-desc">Modeled patient flow across a 15-hour Level 1 trauma center shift. Synthetic dataset of 180 patients, relational schema across 6 tables, dbt transformation layer, and interactive Tableau dashboard.</p>
+      <div class="project-result">Imaging identified as the single largest care bottleneck at ~88 min average. ESI 4/5 patients waited 40+ min for a provider while ESI 1 patients were seen in under 5 min.</div>
+      <div class="project-tools">
+        <span class="tool-chip">Python</span>
+        <span class="tool-chip">PostgreSQL</span>
+        <span class="tool-chip">dbt</span>
+        <span class="tool-chip">Tableau</span>
+        <span class="tool-chip">Faker</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <a class="project-link" href="https://public.tableau.com/views/greentech-recycling/Inventory" target="_blank">↗ Tableau</a>
+      <div class="project-tag">Excel · Tableau · Consulting</div>
+      <h3 class="project-title">GreenTech Recycling Operations Dashboard</h3>
+      <p class="project-desc">Carlson Analytics Lab consulting engagement. Mapped full operational workflow, identified KPIs across four process stages, and designed a three-dashboard Tableau prototype to replace fragmented manual reporting — built directly with the client CFO.</p>
+      <div class="project-result">Testing/Repair identified as primary bottleneck with 51.4% average fail rate. Net loss of $51K/year on average; $707K outlier loss in 2019 traced to upstream sorting inefficiencies.</div>
+      <div class="project-tools">
+        <span class="tool-chip">Tableau</span>
+        <span class="tool-chip">Excel</span>
+        <span class="tool-chip">Process Mapping</span>
+        <span class="tool-chip">KPI Design</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <a class="project-link" href="https://github.com/wchai0721/Projects/blob/main/XYZ%20University_iPSC_CellBank_Pricing.xlsx" target="_blank">↗ GitHub</a>
+      <div class="project-tag">Excel · Financial Modeling · Strategy</div>
+      <h3 class="project-title">iPSC Cell Line Bank — Pricing &amp; Revenue Model</h3>
+      <p class="project-desc">Scenario-based pricing framework for a university-operated iPSC bank covering 10 product/service lines. Cost assumptions benchmarked against WiCell and Cedars-Sinai iPSC Core. Five-year scenario analysis across conservative through mature growth trajectories.</p>
+      <div class="project-result">Base-case: ~$370K annual revenue at 45% target gross margin. Assembloid differentiation and exosome harvest flagged as high-margin growth opportunities.</div>
+      <div class="project-tools">
+        <span class="tool-chip">Excel</span>
+        <span class="tool-chip">Financial Modeling</span>
+        <span class="tool-chip">Pricing Strategy</span>
+        <span class="tool-chip">Scenario Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <a class="project-link" href="https://github.com/wchai0721/Projects/tree/main/dopamine-menu" target="_blank">↗ GitHub</a>
+      <div class="project-tag">Python · Flask · Recommendation System</div>
+      <h3 class="project-title">Dopamine Menu Generator</h3>
+      <p class="project-desc">CLI and Flask web app that scores and ranks 25+ restorative activities using a custom recommendation engine grounded in positive psychology research. Weighted scoring for mood match, energy alignment, and time fit with real-time filtering.</p>
+      <div class="project-result">25+ activities across 7 categories, each linked to a peer-reviewed mechanism. Ranked menu returned in under one second with hard filters removing incompatible options.</div>
+      <div class="project-tools">
+        <span class="tool-chip">Python</span>
+        <span class="tool-chip">Flask</span>
+        <span class="tool-chip">HTML/CSS/JS</span>
+        <span class="tool-chip">Algorithm Design</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Skills &amp; Tools</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="skills-layout">
+    <div class="skills-intro reveal">
+      <p>My technical toolkit bridges quantitative analysis and strategic communication — built across consulting, biotech, and academic research contexts.</p>
+      <p>I work across the full stack from raw data to executive deliverable: querying databases, building models, designing dashboards, and translating findings for senior audiences.</p>
+    </div>
+
+    <div class="skills-groups">
+      <div class="skill-group reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">◈</span>
+          <span class="skill-group-name">Strategy &amp; Research</span>
+        </div>
+        <div class="skill-group-body">
+          <span class="skill-pill">Healthcare Strategy</span>
+          <span class="skill-pill">Market Intelligence</span>
+          <span class="skill-pill">Competitive Analysis</span>
+          <span class="skill-pill">Portfolio Strategy</span>
+          <span class="skill-pill">Go-to-Market</span>
+          <span class="skill-pill">Executive Briefings</span>
+          <span class="skill-pill">Grant Writing</span>
+          <span class="skill-pill">Stakeholder Facilitation</span>
+        </div>
+      </div>
+
+ <div class="skill-group reveal">
+  <div class="skill-group-header">
+    <span class="skill-group-icon">◈</span>
+    <span class="skill-group-name">Data &amp; Analytics</span>
+  </div>
+  <div class="skill-group-body">
+    <span class="skill-pill">Python</span>
+    <span class="skill-pill">SQL / PostgreSQL</span>
+    <span class="skill-pill">R</span>
+    <span class="skill-pill">Tableau</span>
+    <span class="skill-pill">Power BI</span>
+    <span class="skill-pill">Excel (Advanced)</span>
+    <span class="skill-pill">dbt</span>
+    <span class="skill-pill">Pandas</span>
+    <span class="skill-pill">Git / GitHub</span>
+    <span class="skill-pill">Jupyter Notebooks</span>
+    <span class="skill-pill">Google Colab</span>
+    <span class="skill-pill">Flask</span>
+    <span class="skill-pill">Predictive Modeling</span>
+    <span class="skill-pill">KPI Dashboards</span>
+    <span class="skill-pill">Financial Modeling</span>
+  </div>
+</div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">◈</span>
+          <span class="skill-group-name">Healthcare Domain</span>
+        </div>
+        <div class="skill-group-body">
+          <span class="skill-pill">Life Sciences / CRO</span>
+          <span class="skill-pill">Translational Research</span>
+          <span class="skill-pill">Clinical Trial Landscape</span>
+          <span class="skill-pill">hiPSC Biology</span>
+          <span class="skill-pill">Spinal Cord Injury Research</span>
+          <span class="skill-pill">3D Cell Culture & Bioprinting</span>
+          <span class="skill-pill">Preclinical Research</span>
+          <span class="skill-pill">Medtech Valuation</span>
+          <span class="skill-pill">Early-Stage Commercialization</span>
+          <span class="skill-pill">Federal Grant Strategy</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">◈</span>
+          <span class="skill-group-name">Communication &amp; Delivery</span>
+        </div>
+        <div class="skill-group-body">
+          <span class="skill-pill">Executive One-Pagers</span>
+          <span class="skill-pill">PowerPoint / Decks</span>
+          <span class="skill-pill">Proposal Narratives</span>
+          <span class="skill-pill">Cross-functional Leadership</span>
+          <span class="skill-pill">Cross-institutional Coordination</span>
+          <span class="skill-pill">Notion</span>
+          <span class="skill-pill">Asana</span>
+          <span class="skill-pill">Slack</span>
+          <span class="skill-pill">Teams</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">◈</span>
+          <span class="skill-group-name">Tools &amp; AI</span>
+        </div>
+        <div class="skill-group-body">
+          <span class="skill-pill">VS Code</span>
+          <span class="skill-pill">Render</span>
+          <span class="skill-pill">GitHub Pages</span>
+          <span class="skill-pill">Figma</span>
+          <span class="skill-pill">Canva</span>
+          <span class="skill-pill">ChatGPT</span>
+          <span class="skill-pill">Claude</span>
+          <span class="skill-pill">Perplexity</span>
+          <span class="skill-pill">Prompt Engineering</span>
+        </div>
+      </div>      
+      
+      <div class="skill-group reveal">
+        <div class="skill-group-header">
+          <span class="skill-group-icon">◈</span>
+          <span class="skill-group-name">Languages</span>
+        </div>
+        <div class="skill-group-body">
+          <span class="skill-pill">English (Native)</span>
+          <span class="skill-pill">Bahasa Malay (Native)</span>
+          <span class="skill-pill">Korean (Elementary)</span>
+          <span class="skill-pill">Mandarin Chinese (Conversational)</span>
+          <span class="skill-pill">Cantonese (Conversational)</span>
+        </div>
+      </div>      
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="experience-list">
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Aug 2023 – Present</div>
+        <div class="exp-org">University of Minnesota</div>
+        <div class="exp-type">Research · Strategy</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Product Owner / Neuroscientist<br><small style="font-size:0.8rem; color:var(--muted);">Parr Lab — UMN Neurosurgery</small></div>
+        <p class="exp-desc">Lead product and portfolio strategy for a translational discovery biology program spanning hiPSC-derived neural progenitors, organoid systems, and chronic in vivo disease models. Serve as central liaison across R&D, clinical, engineering, and multi-institutional partners including Mayo Clinic, CiRA Japan. Manage $5M+ in NIH and state funding; authored $1M+ in competitive federal grant proposals.</p>
+        <div class="exp-highlights">
+          <span class="exp-highlight">$5M+ Funding</span>
+          <span class="exp-highlight">Multi-institutional</span>
+          <span class="exp-highlight">Executive Deliverables</span>
+          <span class="exp-highlight">hiPSC / Organoids</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Jun 2022 – Aug 2023</div>
+        <div class="exp-org">Slalom</div>
+        <div class="exp-type">Management Consulting</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Business Advisory Consultant</div>
+        <p class="exp-desc">Delivered strategy and analytics engagements for a global healthcare client. Converted complex datasets, stakeholder inputs, and market context into executive-ready recommendations. Built dashboards that improved decision accuracy by 25% and supported expansion planning into underserved regions.</p>
+        <div class="exp-highlights">
+          <span class="exp-highlight">+25% Decision Accuracy</span>
+          <span class="exp-highlight">Healthcare Analytics</span>
+          <span class="exp-highlight">Multi-workstream PM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Jun 2019 – Present</div>
+        <div class="exp-org">Sarcio, Inc.</div>
+        <div class="exp-type">Biotech Startup</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">VP of Product Management</div>
+        <p class="exp-desc">Owned product strategy and commercialization for a life-sciences platform startup ($5M). Conducted market research, customer discovery, competitive analysis, and reimbursement assessment. Packaged cross-functional inputs into investor-ready materials supporting $800K in seed funding.</p>
+        <div class="exp-highlights">
+          <span class="exp-highlight">$800K Seed Funding</span>
+          <span class="exp-highlight">+25% Efficacy Proxy</span>
+          <span class="exp-highlight">Go-to-Market</span>
+          <span class="exp-highlight">Investor Materials</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Jun 2014 – Jun 2019</div>
+        <div class="exp-org">BRTI Life Sciences</div>
+        <div class="exp-type">3D Cell-Culture Biotech</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Senior Scientist / Product Manager</div>
+        <p class="exp-desc">Managed product development and launch strategy for 3D cell-culture systems. Executed market research, competitive analysis, product iteration, and launch planning. Authored a technical white paper featured by Thermo Fisher Scientific that drove 30% sales growth and an international licensing deal.</p>
+        <div class="exp-highlights">
+          <span class="exp-highlight">+15% Revenue in 6mo</span>
+          <span class="exp-highlight">+30% Sales Growth</span>
+          <span class="exp-highlight">International License</span>
+          <span class="exp-highlight">ThermoFisher Feature</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Education &amp; Credentials</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-degree">Master of Business Administration</div>
+      <div class="edu-school">University of Minnesota — Carlson School of Management</div>
+      <div class="edu-year">May 2023</div>
+      <div class="edu-note">Medical Industry Leadership &amp; Business Analytics · GPA 3.8</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">Master of Science — Developmental Biology &amp; Transfusion Medicine</div>
+      <div class="edu-school">University of Cincinnati — College of Medicine</div>
+      <div class="edu-year">May 2014</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">Bachelor of Science — Biochemistry</div>
+      <div class="edu-school">University of Minnesota — College of Biological Sciences</div>
+      <div class="edu-year">May 2012</div>
+    </div>
+    <div class="edu-card reveal" style="background: var(--ink); color: var(--cream);">
+      <div class="edu-degree" style="color:var(--cream);">Publications &amp; IP</div>
+      <div class="edu-school" style="color: rgba(245,240,232,0.6);">7 Peer-Reviewed Publications</div>
+      <div class="edu-year">Lead inventor, 1 U.S. Patent · Co-inventor, 1 U.S. Patent</div>
+    </div>
+  </div>
+
+  <div class="certs-section reveal">
+    <div class="section-header" style="margin-bottom: 1.5rem; margin-top: 3rem;">
+      <span class="section-num" style="font-size:0.6rem;">Certificates</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="cert-row">
+      <div class="cert-dot"></div>
+      <a class="cert-link" href="https://coursera.org/share/c8fc2695991231056b55efb7a8f936c8" target="_blank">
+        <span class="cert-name">Programming for Everybody</span>
+      </a>
+      <span class="cert-provider">Coursera · Univ. of Michigan</span>
+    </div>
+    <div class="cert-row">
+      <div class="cert-dot"></div>
+      <a class="cert-link" href="https://www.udemy.com/certificate/UC-70dcbf78-a39a-4d88-a8a4-804af89e38e6/" target="_blank">
+        <span class="cert-name">SQL for Beginner Data Analysis</span>
+      </a>
+      <span class="cert-provider">Udemy</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-statement reveal">
+      Open to senior roles in <em>healthcare strategy,</em> analytics, and consulting — where domain depth meets executive communication.
+    </div>
+
+    <div class="contact-links reveal">
+      <a class="contact-item" href="mailto:wchai0721@gmail.com">
+        <span class="contact-item-label">Email</span>
+        <span class="contact-item-value">wchai0721@gmail.com</span>
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/wenchai/" target="_blank">
+        <span class="contact-item-label">LinkedIn</span>
+        <span class="contact-item-value">linkedin.com/in/wenchai</span>
+      </a>
+      <a class="contact-item" href="https://github.com/wchai0721" target="_blank">
+        <span class="contact-item-label">GitHub</span>
+        <span class="contact-item-value">github.com/wchai0721</span>
+      </a>
+      <a class="contact-item" href="tel:+16128509228">
+        <span class="contact-item-label">Phone</span>
+        <span class="contact-item-value">(612) 850-9228</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Wen Chai · Minneapolis, MN</span>
+    <span class="footer-copy">Healthcare Strategy &amp; Analytics</span>
+  </div>
+</section>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
