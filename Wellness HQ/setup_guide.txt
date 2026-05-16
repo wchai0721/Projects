@@ -1,0 +1,107 @@
+═══════════════════════════════════════════════════════════
+  WEN'S WELLNESS — GOOGLE SHEETS SYNC SETUP GUIDE
+  Takes about 5 minutes. Do this once, works forever.
+═══════════════════════════════════════════════════════════
+
+YOU'LL END UP WITH:
+  • A Google Sheet that logs every sync automatically
+  • 3 tabs: Weekly Progress / Recovery Log / Session Notes
+  • Data accessible from any device, forever
+
+
+STEP 1 — Create a new Google Sheet
+────────────────────────────────────
+1. Go to sheets.google.com
+2. Click the big "+" to create a blank spreadsheet
+3. Name it "Wen's Wellness Log" (top left)
+4. Leave it open — you'll come back to it
+
+
+STEP 2 — Open Google Apps Script
+────────────────────────────────────
+1. In your Google Sheet, click the menu:
+   Extensions → Apps Script
+2. A new tab opens with a code editor
+3. Delete ALL the existing code in the editor
+   (select all, then delete)
+
+
+STEP 3 — Paste the script
+────────────────────────────────────
+1. Open the file: google_apps_script.js
+2. Select all the code (Cmd+A or Ctrl+A)
+3. Copy it (Cmd+C or Ctrl+C)
+4. Go back to the Apps Script editor
+5. Paste it in (Cmd+V or Ctrl+V)
+6. Click the Save button (floppy disk icon) or Cmd+S
+
+
+STEP 4 — Deploy as a Web App
+────────────────────────────────────
+1. Click the blue "Deploy" button (top right)
+2. Select "New deployment"
+3. Click the gear icon next to "Type" → select "Web app"
+4. Fill in the settings:
+   - Description: Wen Wellness Sync
+   - Execute as: Me (your Google account)
+   - Who has access: Anyone   ← IMPORTANT: must be "Anyone"
+5. Click "Deploy"
+6. If asked, click "Authorize access"
+   → Choose your Google account
+   → Click "Advanced" → "Go to Wen Wellness Sync (unsafe)"
+     (Google shows this warning for your own scripts — it's fine)
+   → Click "Allow"
+7. You'll see a "Web app URL" — it looks like:
+   https://script.google.com/macros/s/LONG_ID_HERE/exec
+8. Copy that URL
+
+
+STEP 5 — Paste the URL into your dashboard
+────────────────────────────────────
+1. Open wen_wellness_dashboard.html in your browser
+2. You'll see an amber banner at the top
+3. Paste your URL into the input field
+4. Click "Save URL"
+5. The banner will disappear
+
+
+STEP 6 — Test it
+────────────────────────────────────
+1. Click "Sync to Sheets" in the header
+2. Button should turn green and say "Synced ✓"
+3. Go back to your Google Sheet — you'll see new rows!
+
+
+AFTER SETUP — how it works
+────────────────────────────────────
+• Every time you tap "Sync to Sheets", your current data
+  is written as a new row in the sheet
+• Syncs whenever YOU tap the button — not automatic
+  (so you're in control)
+• Works from any device — phone, laptop, anywhere
+• The sheet has 3 tabs:
+  - "Wellness Log" → your weekly metrics and targets
+  - "Recovery Log" → sleep, hydration, energy, etc.
+  - "Session Notes" → workout notes by day
+
+
+TROUBLESHOOTING
+────────────────────────────────────
+• "Who has access" must be "Anyone" — if you set it to
+  "Only myself", syncing from the browser won't work.
+
+• If you need to update the script later:
+  Go back to Apps Script → make changes → Deploy →
+  "Manage deployments" → edit the existing one →
+  change version to "New version" → Deploy
+
+• If your URL stops working, re-deploy and get a new URL,
+  then paste the new one into the dashboard banner.
+  (You can open the banner again by clearing your browser
+  storage, or just directly editing the URL in the input.)
+
+
+THAT'S IT 🌿
+Your notes, recovery data, and progress now back up to
+Google Sheets every time you tap Sync.
+═══════════════════════════════════════════════════════════
